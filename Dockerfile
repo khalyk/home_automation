@@ -1,5 +1,6 @@
 FROM python:2-alpine
 
+RUN apk add git
 RUN pip install pigpio
 RUN pip install git+https://github.com/syphoxy/ouimeaux.git
 COPY DHT22.py .
