@@ -1,4 +1,4 @@
-FROM python:alpine-2
+FROM python:2-alpine
 
 RUN pip install pigpio
 RUN pip install git+https://github.com/syphoxy/ouimeaux.git
