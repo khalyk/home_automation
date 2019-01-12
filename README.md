@@ -1,2 +1,3 @@
-# home_automation
-Home automation stuff
+# Home Automation
+
+Home automation stuff using docker, ouimeaux and DHT22 sensor etc.
