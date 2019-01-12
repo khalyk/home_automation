@@ -28,7 +28,7 @@ pipeline {
         stage ('Fetch/extract DHT22 python module') {
             agent any
             steps {
-                dir ('home_automation') {
+                script {
 		    sh "wget http://abyz.me.uk/rpi/pigpio/code/DHT22_py.zip"
 		    sh "unzip DHT22_py.zip"
 		}  
@@ -38,8 +38,8 @@ pipeline {
         stage ('Build') {
             agent any
             steps {
-                dir ('home_automation') {
-                    sh "docker build -t khalyk/homeauto:latest ."
+                script {
+                    sh "docker build -t khalyk/humidity_control:latest ."
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
             agent any
             steps {
                 withDockerRegistry([ credentialsId: "docker", url: "" ]) {
-                    sh 'docker push khalyk/homeauto:latest'
+                    sh 'docker push khalyk/humidity_control:latest'
                 }
             }
         }
